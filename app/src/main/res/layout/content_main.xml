@@ -9,46 +9,6 @@
     tools:context=".MainActivity"
     tools:showIn="@layout/activity_main">
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
-
-        <ImageButton
-            android:src="@drawable/ic_stat_name"
-            android:id="@+id/buttonNuevo"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-
-             />
-
-        <ImageButton
-            android:src="@drawable/trazo"
-            android:id="@+id/buttonPincel"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <ImageButton
-            android:src="@drawable/borrador"
-            android:id="@+id/buttonBorrador"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <ImageButton
-            android:id="@+id/buttonGuardar"
-            android:src="@drawable/ejecutar"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-    </LinearLayout>
-
-
     <view
         android:id="@+id/lienzo"
         class="nicolas.aplicaionuno.mainactivitypaint.Lienzo"
@@ -56,12 +16,6 @@
         android:layout_height="81dp"
         android:layout_weight="10"
         android:background="#FFFFFFFF" />
-
-    <ImageView android:id="@+id/image_viewFondo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -86,11 +40,8 @@
             android:layout_weight="1"
             android:tag="#FF0000FF"
             android:background="#FF0000FF"/>
-
-       
-
-
-
     </LinearLayout>
+
+
 
 </LinearLayout>

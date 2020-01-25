@@ -41,8 +41,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
         rojo = (ImageButton)findViewById(R.id.ColorRojo);
         azul = (ImageButton)findViewById(R.id.ColorAzul);
@@ -134,7 +132,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 opc.setContentView(R.layout.guardar_opc);
 
                 ImageButton anadir;
-                anadir = (ImageButton) opc.findViewById(R.id.imageButtonNuevo);
+                anadir =  opc.findViewById(R.id.imageButtonNuevo);
                 anadir.setOnClickListener(new View.OnClickListener(){
                     @Override
 
@@ -164,7 +162,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 });
 
                 ImageButton importar;
-                importar = (ImageButton) opc.findViewById(R.id.imageButtonImportar);
+                importar = opc.findViewById(R.id.imageButtonImportar);
                 importar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

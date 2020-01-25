@@ -6,21 +6,68 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <include layout="@layout/content_main" />
 
-    </com.google.android.material.appbar.AppBarLayout>
+        <com.getbase.floatingactionbutton.FloatingActionsMenu
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="60dp"
+            app:fab_addButtonColorNormal="@color/Pink"
+            app:fab_addButtonColorPressed="@color/ColorPink"
+            app:fab_addButtonPlusIconColor="@color/white"
+            app:fab_labelStyle="@style/custom_Fab">
 
-    <include layout="@layout/content_main" />
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/buttonGuardar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/white"
+                app:fab_colorPressed="@color/white_pressed"
+                app:fab_icon="@drawable/ejecutar"
+                app:fab_size="mini"
+                app:fab_title="Ejecutar"></com.getbase.floatingactionbutton.FloatingActionButton>
 
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/buttonBorrador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/white"
+                app:fab_colorPressed="@color/white_pressed"
+                app:fab_icon="@drawable/borrador"
+                app:fab_size="mini"
+                app:fab_title="Borrador"></com.getbase.floatingactionbutton.FloatingActionButton>
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/buttonPincel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/white"
+                app:fab_colorPressed="@color/white_pressed"
+                app:fab_icon="@drawable/trazo"
+                app:fab_size="mini"
+                app:fab_title="Pincel"></com.getbase.floatingactionbutton.FloatingActionButton>
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/buttonNuevo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/white"
+                app:fab_colorPressed="@color/white_pressed"
+                app:fab_icon="@drawable/guardar"
+                app:fab_size="mini"
+                app:fab_title="Importar"></com.getbase.floatingactionbutton.FloatingActionButton>
+
+
+        </com.getbase.floatingactionbutton.FloatingActionsMenu>
+
+    </RelativeLayout>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
