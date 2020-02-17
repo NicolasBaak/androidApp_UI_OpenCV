@@ -15,15 +15,21 @@
         <include layout="@layout/content_main" />
 
         <com.getbase.floatingactionbutton.FloatingActionsMenu
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="238dp"
+            android:layout_height="613dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentBottom="true"
-            android:layout_marginBottom="60dp"
+            android:layout_marginStart="159dp"
+            android:layout_marginTop="97dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginBottom="21dp"
             app:fab_addButtonColorNormal="@color/Pink"
             app:fab_addButtonColorPressed="@color/ColorPink"
             app:fab_addButtonPlusIconColor="@color/white"
-            app:fab_labelStyle="@style/custom_Fab">
+            app:fab_labelStyle="@style/custom_Fab"
+            >
 
             <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/buttonGuardar"
@@ -36,16 +42,6 @@
                 app:fab_title="Ejecutar"></com.getbase.floatingactionbutton.FloatingActionButton>
 
             <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/buttonBorrador"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:fab_colorNormal="@color/white"
-                app:fab_colorPressed="@color/white_pressed"
-                app:fab_icon="@drawable/borrador"
-                app:fab_size="mini"
-                app:fab_title="Borrador"></com.getbase.floatingactionbutton.FloatingActionButton>
-
-            <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/buttonPincel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -56,7 +52,27 @@
                 app:fab_title="Pincel"></com.getbase.floatingactionbutton.FloatingActionButton>
 
             <com.getbase.floatingactionbutton.FloatingActionButton
-                android:id="@+id/buttonNuevo"
+                android:id="@+id/buttonBorrador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/white"
+                app:fab_colorPressed="@color/white_pressed"
+                app:fab_icon="@drawable/borrador"
+                app:fab_size="mini"
+                app:fab_title="Borrador"></com.getbase.floatingactionbutton.FloatingActionButton>
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/buttonElimiar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:fab_colorNormal="@color/white"
+                app:fab_colorPressed="@color/white_pressed"
+                app:fab_icon="@drawable/eliminar"
+                app:fab_size="mini"
+                app:fab_title="Eliminar"></com.getbase.floatingactionbutton.FloatingActionButton>
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/buttonImportar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:fab_colorNormal="@color/white"

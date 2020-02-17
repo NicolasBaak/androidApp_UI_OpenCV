@@ -2,15 +2,18 @@ package nicolas.aplicaionuno.mainactivitypaint;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
-import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.Region;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -32,10 +35,12 @@ public class Lienzo extends View {
     private static boolean borrado=false;
     //Imagen de fondo
     Drawable imagen;
+
+    Bitmap icon = BitmapFactory.decodeResource(getResources(),
+            R.drawable.fondo1);
     public Lienzo(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
 
-        imagen = context.getResources().getDrawable(R.drawable.fondo1);
         setupDrawing();
     }
 
@@ -54,19 +59,37 @@ public class Lienzo extends View {
         canvasPaint = new Paint(Paint.DITHER_FLAG);
     }
 
+    public void AreaDibujo(float altoT, float anchoT, float alto, float altoOriginal){
+
+        float emp = (altoT-alto)/2;
+
+        RectF areaRectangulo = new RectF(0, 0, anchoT, alto);
+       // drawCanvas.clipRect(0f, 0f, ancho, alto, Region.Op.UNION);
+        System.out.println("dezplasamiento: "+emp);
+
+        drawCanvas.drawRect(0,0,anchoT, alto, drawPaint);
+        drawCanvas.clipRect(areaRectangulo);
+
+    }
+
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
+
         canvasBitmap = Bitmap.createBitmap(w, h, Bitmap.Config.ARGB_8888);
         drawCanvas = new Canvas(canvasBitmap);
     }
+
 
     //Pinta la vista y es llamado desde el Ontouch con el invalidate() para repintar el canvas
     @Override
     protected void onDraw(Canvas canvas) {
         canvas.drawBitmap(canvasBitmap, 0, 0, canvasPaint);
         canvas.drawPath(drawPath, drawPaint);
+        canvas.drawColor(Color.TRANSPARENT);
+        System.out.println("Wight: "+getWidth()+" Heiht"+getHeight());
     }
+
 
     //Registra los touch de usuario
 
@@ -108,57 +131,22 @@ public class Lienzo extends View {
 
     //set borrado true or false
     public static void setBorrado(boolean estaborrado){
-
         borrado=estaborrado;
 
         if(borrado) {
-            drawPaint.setColor(Color.WHITE);
-            //drawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
+            //drawPaint.setColor(Color.GREEN);
+            drawPaint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
         }
-
         else {
+            drawPaint.setXfermode(null);
             drawPaint.setColor(paintColor);
-            //drawPaint.setXfermode(null);
+
         }
-
     }
-
-
 
     public void NuevoDibujo(){
         drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
         invalidate();
 
     }
-
-    public void InsertarImagen(Context context){
-
-        imagen = context.getResources().getDrawable(R.drawable.fondo1);
-        //Dimensiones del canvas
-        int altoCa = getBottom();
-        int anchoCa = getRight();
-        float medioCa = (float)altoCa/anchoCa;
-
-        //Dimensiones canvas
-        int anchoIm = imagen.getIntrinsicWidth();
-        int altoIm = imagen.getIntrinsicHeight();
-        float medioIn = (float)altoIm/anchoIm;
-        //Ajustar tamaño
-        int alto, ancho;
-        if(medioCa < medioIn){
-            ancho = anchoCa;
-            alto = (int) (medioCa * medioIn);
-        }
-        else{
-            alto = altoCa;
-            ancho = (int)(alto/medioIn);
-        }
-
-        //Insertar imagen
-        imagen.setBounds(0, 0, ancho, alto);
-        imagen.draw(drawCanvas);
-        invalidate();
-    }
-
-
 }
